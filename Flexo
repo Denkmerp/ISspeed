@@ -1,0 +1,28 @@
+local player = game.Players.LocalPlayer -- get the local player
+local character = player.Character or player.CharacterAdded:Wait() -- get the player's character or wait for it to spawn
+
+local speedButton = script.Parent -- assume speedButton is a GuiButton or TextButton
+
+speedButton.MouseButton1Click:Connect(function()
+    character.Humanoid.WalkSpeed = 25 -- set the player's walk speed to 25
+end)
+
+
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+    if InfiniteJumpEnabled then
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+    end
+end)
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "This is client (only for you)";
+    Text = "Mixed by hellomans(give him bacon shoulder buddy)"; )
+    Duration = 30;
+})
+wait(1)
+game.StarterGui:SetCore("SendNotification", {
+    Title = "HAPPY HAPPY-";
+    Text = "I Think you will get killed after";
+    Duration = 30;
+})
